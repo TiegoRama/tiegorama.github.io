@@ -1,0 +1,203 @@
+/* Reset et configuration de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garde les dimensions cohérentes */
+    font-family: 'Segoe UI', sans-serif; /* Police moderne et lisible */
+}
+
+:root {
+    --noir: #0a0a0a;    /* Noir profond pour le fond */
+    --argent: #c0c0c0;  /* Couleur argentée pour le texte */
+}
+
+body {
+    background-color: var(--noir);
+    color: var(--argent);
+    line-height: 1.6;   /* Espacement vertical du texte */
+}
+
+/* HEADER FIXÉ EN HAUT */
+header {
+    position: fixed;    /* Reste visible au défilement */
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(10, 10, 10, 0.95); /* Noir semi-transparent */
+    z-index: 1000;      /* Garantit que le header est au-dessus */
+}
+
+/* NAVIGATION PRINCIPALE */
+nav {
+    display: flex;
+    justify-content: center; /* Centre les liens */
+    gap: 40px;               /* Espace entre les liens */
+}
+
+nav a {
+    color: var(--argent);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: 0.3s;        /* Animation fluide au survol */
+}
+
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #fff; /* Effet lumineux */
+}
+
+/* SECTIONS PRINCIPALES */
+section {
+    min-height: 100vh;    /* Occupe toute la hauteur d'écran */
+    padding: 100px 20% 50px; /* Espacement haut/droite-bas/gauche */
+    border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+}
+#accueil h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 0 20px; /* Empêche le texte de toucher les bords */
+    line-height: 1.2; /* Espacement entre les lignes */
+    word-wrap: break-word; /* Force le retour à la ligne si besoin */
+    hyphens: auto; /* Césure automatique pour les mots longs (fonctionne en français) */
+    max-width: 1200px; /* Limite la largeur du texte */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    #accueil h1 {
+        font-size: 2em; /* Taille réduite sur mobile */
+        hyphens: none; /* Désactive la césure sur mobile si besoin */
+    }
+}
+/* GRID DES COMPÉTENCES */
+.grid-competences {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
+    gap: 30px; /* Espace entre les cartes */
+}
+
+.competence-card {
+    background: rgba(192, 192, 192, 0.05);
+    padding: 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    opacity: 0;         /* Initialement invisible pour l'animation */
+    transform: translateY(20px); /* Décalage pour l'apparition */
+}
+
+.competence-card:hover {
+    background: rgba(192, 192, 192, 0.1);
+}
+
+/* SECTION PROJETS */
+.projet-container {
+    display: grid;
+    gap: 40px;         /* Espacement entre les projets */
+    margin-top: 50px;
+}
+
+.projet-card {
+    display: flex;
+    gap: 20px;         /* Espace entre image et texte */
+    padding: 20px;
+    background: rgba(192, 192, 192, 0.05);
+    border-radius: 5px;
+    opacity: 0;        /* Animation similaire aux compétences */
+    transform: translateY(20px);
+}
+/* Styles spécifiques pour les projets */
+.projet-liens {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-projet {
+    background: rgba(192, 192, 192, 0.1);
+    color: var(--argent) !important;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(192, 192, 192, 0.3);
+}
+
+.btn-projet:hover {
+    background: rgba(192, 192, 192, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-projet i {
+    font-size: 0.9em;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .projet-card {
+        flex-direction: column;
+    }
+    
+    .projet-liens {
+        flex-direction: column;
+    }
+    
+    .btn-projet {
+        justify-content: center;
+    }
+}
+
+/* FORMULAIRE DE CONTACT */
+form {
+    max-width: 600px;  /* Limite la largeur sur grand écran */
+    margin: 0 auto;    /* Centre le formulaire */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(192, 192, 192, 0.05);
+    border: 1px solid rgba(192, 192, 192, 0.1);
+    color: var(--argent);
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--argent); /* Mise en valeur du focus */
+}
+
+button {
+    background: var(--argent);
+    color: var(--noir);
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #fff;    /* Effet au survol */
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(10, 10, 10, 0.95);
+    position: relative; /* Garantit qu'il reste en bas */
+    z-index: 1000;
+}
+
+/* ANIMATIONS */
+.apparition {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: 0.5s ease-out;
+}
