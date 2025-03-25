@@ -201,3 +201,378 @@ footer {
     transform: translateY(0) !important;
     transition: 0.5s ease-out;
 }
+/* Section Veille */
+.veille-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.veille-card {
+    background: rgba(192, 192, 192, 0.05);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--argent);
+}
+
+/* Section Stages */
+.stage-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stage-card {
+    background: rgba(192, 192, 192, 0.03);
+    padding: 25px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.stage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--argent);
+}
+
+.entreprise {
+    color: #888;
+    margin: 10px 0;
+}
+/* CSS correspondant */
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.option-card {
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+    background: rgba(192, 192, 192, 0.03);
+    transition: transform 0.3s;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+}
+
+.slam {
+    border-right: 2px solid var(--argent);
+    
+}
+
+.sisr {
+    border-left: 2px solid var(--argent);
+}
+
+.option-card i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    display: block;
+    color: var(--argent);
+}
+
+.acronyme {
+    color: #888;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .options-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .slam, .sisr {
+        border: none;
+        border-bottom: 2px solid var(--argent);
+    }
+}
+/* Ajoutez ceci dans votre fichier style.css */
+/* Styles pour la nouvelle mise en page */
+
+
+.cv-column {
+    position: relative;
+    height: 100%;
+}
+
+.cv-column h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--argent);
+}
+
+.download-btn {
+    background: var(--argent);
+    color: var(--noir) !important;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    width: fit-content;
+}
+
+.download-btn:hover {
+    background: #fff;
+}
+
+.presentation-column {
+    padding: 0 20px;
+}
+
+.bio-content {
+    background: rgba(192,192,192,0.03);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 3px solid var(--argent);
+}
+
+.highlight-box {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(192,192,192,0.05);
+    border-radius: 5px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skills-tags span {
+    background: rgba(192,192,192,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.presentation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 50px;
+    align-items: start;
+    margin-top: 40px;
+}
+
+
+
+/* Assurez-vous que la section accueil a suffisamment de hauteur */
+#accueil {
+    min-height: 100vh;
+    padding-top: 120px; /* Pour compenser le header fixe */
+}
+
+@media (max-width: 992px) {
+    .presentation-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
+/* Styles pour la section about-bts */
+.about-bts {
+    padding: 30px 0;
+    margin-bottom: 50px;
+}
+
+.about-bts h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--argent);
+}
+
+/* Style pour le bloc d'explication */
+.bts-explanation {
+    background: rgba(192, 192, 192, 0.03);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bts-explanation h3 {
+    color: var(--argent);
+    margin-bottom: 15px;
+}
+
+.bts-explanation p {
+    line-height: 1.6;
+}
+
+/* Style pour le bloc des métiers */
+.career-possibilities {
+    margin-top: 50px;
+}
+
+.career-possibilities h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--argent);
+}
+
+.careers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.career-card {
+    background: rgba(192, 192, 192, 0.03);
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.career-card:hover {
+    transform: translateY(-5px);
+    background: rgba(192, 192, 192, 0.05);
+}
+
+.career-card h4 {
+    color: var(--argent);
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.career-card ul {
+    padding-left: 20px;
+}
+
+.career-card li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.career-card li::before {
+    content: '>';
+    position: absolute;
+    left: -15px;
+    color: var(--argent);
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .careers-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .bts-explanation, .career-card {
+        padding: 20px;
+    }
+}
+.competences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.competence-card {
+    background: rgba(192, 192, 192, 0.05);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 3px solid var(--argent);
+}
+
+.competence-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background: rgba(192, 192, 192, 0.08);
+}
+
+.competence-card h3 {
+    color: var(--argent);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.3em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.competence-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--argent);
+}
+
+.competences-logos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.competence-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.competence-logo:hover {
+    transform: translateY(-5px);
+}
+
+.competence-logo img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    filter: grayscale(20%);
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.competence-logo:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.competence-logo span {
+    font-size: 0.9em;
+    color: var(--argent);
+}
+
+/* Animation d'apparition */
+.competence-card {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.competence-card.apparition {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .competences-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .competences-logos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
