@@ -311,9 +311,26 @@
                 <p>Outils : GitHub Copilot, ChatGPT 4</p>
                 <a href="#" class="btn-projet">Ressources</a>
             </div>
+            <div class="veille-card">
+                <h3>Développement Kotlin & Angular</h3>
+                <p>Veille active sur les technologies que j'utilise</p>
+                <a href="#rss-section" class="btn-projet">Voir les derniers articles</a>
+            </div>
+        </div>
+        
+        <!-- Nouvelle section pour le flux RSS -->
+        <div id="rss-section" class="rss-feed-wrapper">
+            <div class="rss-header">
+                <h3>Derniers articles techniques</h3>
+                <button id="refresh-rss" class="refresh-btn">
+                    <i class="fas fa-sync-alt"></i> Rafraîchir
+                </button>
+            </div>
+            <div id="rss-feed-container">
+                <!-- Le contenu sera chargé dynamiquement par le JavaScript -->
+            </div>
         </div>
     </section>
-    
     <section id="contact">
         <h1>Contact</h1>
 <!-- Modifiez votre formulaire comme ceci -->
@@ -345,5 +362,106 @@
             });
         });
     </script>
+    <script>
+        // Script pour récupérer et afficher un flux RSS
+        document.addEventListener('DOMContentLoaded', function() {
+          // Fonction pour charger les articles RSS
+          function loadRssFeeds() {
+            const feedContainer = document.getElementById('rss-feed-container');
+            
+            // URL des flux RSS à suivre (vous pouvez les adapter selon vos intérêts)
+            const feedUrls = [
+              'https://aws.amazon.com/blogs/amazon-ai/feed',
+              'https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml'
+
+
+             
+            ];
+            
+            // Utilisation d'un proxy CORS pour pouvoir accéder aux flux RSS
+            const corsProxy = 'https://api.rss2json.com/v1/api.json?rss_url=';
+            
+            // Limiter le nombre d'articles à afficher
+            const maxArticles = 6;
+            let articlesLoaded = 0;
+            
+            // Afficher un message de chargement
+            feedContainer.innerHTML = '<div class="loading-msg">Chargement des articles...</div>';
+            
+            // Pour chaque flux RSS
+            feedUrls.forEach(url => {
+              fetch(corsProxy + encodeURIComponent(url))
+                .then(response => response.json())
+                .then(data => {
+                  // Supprimer le message de chargement
+                  const loadingMsg = document.querySelector('.loading-msg');
+                  if (loadingMsg) loadingMsg.remove();
+                  
+                  // Si le flux a été correctement chargé
+                  if (data.status === 'ok') {
+                    // Pour chaque article dans le flux
+                    data.items.slice(0, 2).forEach(item => {
+                      if (articlesLoaded < maxArticles) {
+                        // Créer un élément pour l'article
+                        const articleElement = document.createElement('div');
+                        articleElement.className = 'rss-article';
+                        
+                        // Formater la date
+                        const pubDate = new Date(item.pubDate);
+                        const formattedDate = pubDate.toLocaleDateString('fr-FR', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        });
+                        
+                        // Limiter la description à 150 caractères
+                        let description = item.description
+                          .replace(/<[^>]*>/g, '') // Supprimer les balises HTML
+                          .substring(0, 150); // Limiter à 150 caractères
+                        
+                        if (description.length === 150) {
+                          description += '...';
+                        }
+                        
+                        // Remplir l'élément avec les informations de l'article
+                        articleElement.innerHTML = `
+                          <h4>${item.title}</h4>
+                          <p class="rss-date">${formattedDate} - ${data.feed.title}</p>
+                          <p class="rss-description">${description}</p>
+                          <a href="${item.link}" target="_blank" class="rss-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
+                        `;
+                        
+                        // Ajouter l'élément au conteneur
+                        feedContainer.appendChild(articleElement);
+                        articlesLoaded++;
+                      }
+                    });
+                  }
+                })
+                .catch(error => {
+                  console.error('Erreur lors du chargement du flux RSS:', error);
+                  
+                  // Afficher un message d'erreur si aucun flux n'a pu être chargé
+                  if (feedContainer.children.length === 0 || feedContainer.children[0].className === 'loading-msg') {
+                    feedContainer.innerHTML = '<p>Impossible de charger les articles. Veuillez réessayer plus tard.</p>';
+                  }
+                });
+            });
+          }
+          
+          // Charger les flux RSS au chargement de la page
+          loadRssFeeds();
+          
+          // Ajouter un bouton pour rafraîchir les flux
+          const refreshButton = document.getElementById('refresh-rss');
+          if (refreshButton) {
+            refreshButton.addEventListener('click', function() {
+              const feedContainer = document.getElementById('rss-feed-container');
+              feedContainer.innerHTML = ''; // Vider le conteneur
+              loadRssFeeds(); // Recharger les flux
+            });
+          }
+        });
+        </script>
 </body>
 </html>
