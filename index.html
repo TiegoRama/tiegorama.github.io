@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio BTS SIO SLAM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modern-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -21,117 +21,129 @@
     
     <section id="accueil">
         <div class="presentation-grid">
-            <div class="cv-column">
-                <h2>Mon CV</h2>
-                <div class="cv-container">
-                    <div class="cv-wrapper">
-                        <embed src=CV_TIEGO_RAMAMONJISOA.pdf width=800 height=1160 type='application/pdf'/>
- 
-                    </div>
-                    <a href="CV_TIEGO_RAMAMONJISOA.pdf" download class="download-btn">
-                        <i class="fas fa-download"></i> Télécharger
-                    </a>
-                </div>
-            </div>
+            <!-- Colonne de présentation (à gauche) -->
             <div class="presentation-column">
                 <h1>Tiego Ramamonjisoa</h1>
                 <p class="subtitle">Étudiant en BTS SIO Option SLAM</p>
                 
                 <div class="bio-content">
-                    <p>Je suis actuellement étudiant au lycée Léonard de Vinci en deuxième années de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Application Métier) qui en est une option spécialisée pour le développement 
-
-                        Je vous propose sur ce portfolio de retrouver ci-dessous les différentes études, et projet professionnel que j'ai pu entreprendre au sein de ma carrière.
-                        
-                        Vous retrouverez ci-dessous mes différents projets </p>
+                    <p>Je suis actuellement étudiant au lycée Léonard de Vinci en deuxième année de BTS SIO (Services Informatiques aux Organisations) dans l'option SLAM (Solutions Logicielles et Applications Métiers), spécialisée dans le développement d'applications.</p>
+                    
+                    <p>Je vous propose sur ce portfolio de retrouver les différentes études et projets professionnels que j'ai pu entreprendre au cours de ma formation.</p>
                     
                     <div class="highlight-box">
                         <h3><i class="fas fa-graduation-cap"></i> Formation</h3>
                         <ul>
                             <li>BTS SIO Option SLAM (en cours)</li>
                             <li>Baccalauréat général spécialités Mathématiques et Science de la vie et de la Terre</li>
+                            <li>Diplôme National du Brevet</li>
                         </ul>
                     </div>
                     
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-laptop-code"></i> Spécialités</h3>
+                        <ul>
+                            <li>Développement d'applications en Kotlin et Java</li>
+                            <li>Conception de solutions web avec Angular</li>
+                            <li>Gestion de bases de données relationnelles</li>
+                        </ul>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Colonne CV (à droite) -->
+            <div class="cv-column">
+                <h2>Mon CV</h2>
+                <div class="cv-container">
+                    <div class="cv-wrapper">
+                        <embed src="CV_TIEGO_RAMAMONJISOA.pdf" type="application/pdf" />
+                    </div>
+                    <a href="CV_TIEGO_RAMAMONJISOA.pdf" download class="download-btn">
+                        <i class="fas fa-download"></i> Télécharger mon CV
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    <div class="about-bts">
-        <h2>Le BTS SIO</h2>
-        
-        <!-- Bloc d'explication du BTS -->
-        <div class="bts-explanation">
-            <h3>Formation en 2 ans</h3>
-            <p>Le BTS Services Informatiques aux Organisations (SIO) est une formation en 2 ans qui prépare aux métiers de l'informatique d'entreprise. Cette formation propose deux spécialités à partir de la seconde année :</p>
-        </div>
-        
-        <div class="options-container">
-            <!-- Option SLAM -->
+   <!-- Nouvelle structure pour la section BTS SIO -->
+<div class="about-bts">
+    <h2>Le BTS SIO</h2>
+    
+    <!-- Conteneur principal avec 3 colonnes -->
+    <div class="bts-container">
+        <!-- Colonne SLAM et ses métiers -->
+        <div class="bts-column">
             <div class="option-card slam">
                 <i class="fas fa-code"></i>
                 <h3>SLAM</h3>
-                <p class="acronyme"></p>
-                <ul>
-                    <li>L’option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d’un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).
-                        Les techniciens supérieurs en informatique option SLAM, sont préparés aux métiers de : </li>
-
-                </ul>
+                <p class="acronyme">Solutions Logicielles et Applications Métiers</p>
+                <p>L'option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d'un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).</p>
             </div>
-    
-            <!-- Option SISR -->
-            <div class="option-card sisr">
-                <i class="fas fa-server"></i>
-                <h3>SISR</h3>
-                <p class="acronyme"></p>
+            
+            <div class="career-card slam-careers">
+                <h4>Métiers SLAM</h4>
                 <ul>
-                    <li>L’option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d’un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).
-                        Les techniciens supérieurs en informatique option SLAM, sont préparés aux métiers de : </li>
-                    
+                    <li>Développeur d'applications</li>
+                    <li>Développeur web et mobile</li>
+                    <li>Concepteur d'applications</li>
+                    <li>Chargé d'études informatiques</li>
+                    <li>Analyste programmeur</li>
+                    <li>Intégrateur DevOps</li>
+                    <li>Testeur d'applications</li>
                 </ul>
             </div>
         </div>
         
-        <!-- Nouveau bloc pour les métiers possibles -->
-        <div class="career-possibilities">
-            <h3>Débouchés professionnels</h3>
-            <div class="careers-container">
-                <!-- Métiers SLAM -->
-                <div class="career-card">
-                    <h4>Métiers SLAM</h4>
-                    <ul>
-                        <li>Développeur d'applications</li>
-                        <li>Développeur web et mobile</li>
-                        <li>Concepteur d'applications</li>
-                        <li>Chargé d'études informatiques</li>
-                        <li>Analyste programmeur</li>
-                        <li>Intégrateur DevOps</li>
-                        <li>Testeur d'applications</li>
-                    </ul>
-                </div>
+        <!-- Colonne centrale avec l'explication -->
+        <div class="bts-column bts-center">
+            <div class="bts-explanation">
+                <h3>Formation en 2 ans</h3>
+                <p>Le BTS Services Informatiques aux Organisations (SIO) est une formation en 2 ans qui prépare aux métiers de l'informatique d'entreprise.</p>
+                <p>Cette formation propose deux spécialités à partir du second semestre de la 1ère année :</p>
+                <ul>
+                    <li><strong>SLAM</strong> : Solutions Logicielles et Applications Métiers (développement)</li>
+                    <li><strong>SISR</strong> : Solutions d'Infrastructure, Systèmes et Réseaux</li>
+                </ul>
+                <p>La formation comprend des enseignements généraux, des enseignements professionnels et des stages en entreprise pour un total de 10 à 12 semaines sur les deux années.</p>
                 
-                <!-- Métiers SISR -->
-                <div class="career-card">
-                    <h4>Métiers SISR</h4>
-                    <ul>
-                        <li>Administrateur systèmes et réseaux</li>
-                        <li>Technicien d'infrastructure</li>
-                        <li>Technicien support et déploiement</li>
-                        <li>Technicien réseaux et télécoms</li>
-                        <li>Responsable cybersécurité</li>
-                        <li>Technicien cloud</li>
-                        <li>Superviseur d'exploitation</li>
-                    </ul>
+                <div class="bts-cta">
+                    <a href="#competences" class="btn-projet">
+                        <i class="fas fa-graduation-cap"></i> Voir mes compétences
+                    </a>
                 </div>
             </div>
         </div>
+        
+        <!-- Colonne SISR et ses métiers -->
+        <div class="bts-column">
+            <div class="option-card sisr">
+                <i class="fas fa-server"></i>
+                <h3>SISR</h3>
+                <p class="acronyme">Solutions d'Infrastructure, Systèmes et Réseaux</p>
+                <p>L'option SISR forme des professionnels des services informatiques aux organisations capables de gérer et d'administrer le réseau et de gérer la configuration des postes clients.</p>
+            </div>
+            
+            <div class="career-card sisr-careers">
+                <h4>Métiers SISR</h4>
+                <ul>
+                    <li>Administrateur systèmes et réseaux</li>
+                    <li>Technicien d'infrastructure</li>
+                    <li>Technicien support et déploiement</li>
+                    <li>Technicien réseaux et télécoms</li>
+                    <li>Responsable cybersécurité</li>
+                    <li>Technicien cloud</li>
+                    <li>Superviseur d'exploitation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     </div>
     </section>
 
     <section id="competences">
         <h1>Compétences</h1>
         
-        <div class="competences-container">
+        <div class="grid-competences">
             <!-- Développement Web -->
             <div class="competence-card">
                 <h3>Développement Web</h3>
@@ -167,10 +179,6 @@
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
                         <span>Python</span>
                     </div>
-                    <div class="competence-logo">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                        <span>Java</span>
-                    </div>
                 </div>
             </div>
     
@@ -199,25 +207,28 @@
                     </div>
                 </div>
             </div>
-        
-        <div class="competence-card">
-            <h3>Environnements & Outils</h3>
-            <div class="competences-logos">
-                <div class="competence-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA">
-                    <span>IntelliJ IDEA</span>
-                </div>
-                <div class="competence-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
-                    <span>VS Code</span>
+            
+            <!-- Environnements & Outils -->
+            <div class="competence-card">
+                <h3>Environnements & Outils</h3>
+                <div class="competences-logos">
+                    <div class="competence-logo">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA">
+                        <span>IntelliJ IDEA</span>
+                    </div>
+                    <div class="competence-logo">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                        <span>VS Code</span>
+                    </div>
                 </div>
             </div>
+        </div>
     </section>
   
     <section id="projets">
         <h1>Projets</h1>
         <div class="projet-container">
-            <!-- Exemple de projet -->
+            <!-- Projet 1 -->
             <div class="projet-card">
                 <div class="projet-info">
                     <h3>Savon API</h3>
@@ -233,14 +244,12 @@
                            download>
                             <i class="fas fa-download"></i> Télécharger
                         </a>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
         <div class="projet-container">
-            <!-- Exemple de projet -->
+            <!-- Projet 2 -->
             <div class="projet-card">
                 <div class="projet-info">
                     <h3>Geoworld</h3>
@@ -256,14 +265,12 @@
                            download>
                             <i class="fas fa-download"></i> Télécharger
                         </a>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
         <div class="projet-container">
-            <!-- Exemple de projet -->
+            <!-- Projet 3 -->
             <div class="projet-card">
                 <div class="projet-info">
                     <h3>Kotlin Aventure</h3>
@@ -279,9 +286,7 @@
                            download>
                             <i class="fas fa-download"></i> Télécharger
                         </a>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -472,5 +477,9 @@
           }
         });
         </script>
+            <script src="portfolio.js"></script>
+            <div id="scroll-top-btn">
+                <i class="fas fa-arrow-up"></i>
+            </div>
 </body>
 </html>

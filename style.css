@@ -1,538 +1,374 @@
-/* Reset et configuration de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Garde les dimensions cohérentes */
-    font-family: 'Segoe UI', sans-serif; /* Police moderne et lisible */
-}
-
+/* Amélioration du thème sombre */
 :root {
-    --noir: #0a0a0a;    /* Noir profond pour le fond */
-    --argent: #c0c0c0;  /* Couleur argentée pour le texte */
+    --noir: #121212;          /* Noir plus profond pour un design plus moderne */
+    --gris-fonce: #1e1e1e;    /* Gris foncé pour les contrastes */
+    --argent: #c0c0c0;        /* Argent pour le texte (inchangé) */
+    --accent: #7C4DFF;        /* Couleur d'accent violette (peut être changée selon préférence) */
+    --accent-secondary: #03DAC6; /* Couleur d'accent secondaire */
+    --text-primary: #E0E0E0;  /* Texte principal */
+    --text-secondary: #A0A0A0;/* Texte secondaire */
+    --gradient-primary: linear-gradient(135deg, var(--accent), #9C27B0); /* Gradient pour accents importants */
 }
 
 body {
     background-color: var(--noir);
-    color: var(--argent);
-    line-height: 1.6;   /* Espacement vertical du texte */
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* HEADER FIXÉ EN HAUT */
+/* Amélioration du header */
 header {
-    position: fixed;    /* Reste visible au défilement */
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    background: rgba(10, 10, 10, 0.95); /* Noir semi-transparent */
-    z-index: 1000;      /* Garantit que le header est au-dessus */
+    backdrop-filter: blur(10px);
+    background: rgba(18, 18, 18, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* NAVIGATION PRINCIPALE */
+/* Style de navigation amélioré */
 nav {
     display: flex;
-    justify-content: center; /* Centre les liens */
-    gap: 40px;               /* Espace entre les liens */
+    justify-content: center;
+    gap: 40px;
 }
 
 nav a {
-    color: var(--argent);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.1em;
-    transition: 0.3s;        /* Animation fluide au survol */
+    position: relative;
+    padding: 10px 5px;
+    transition: all 0.3s;
 }
 
 nav a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #fff; /* Effet lumineux */
+    color: var(--accent);
 }
 
-/* SECTIONS PRINCIPALES */
-section {
-    min-height: 100vh;    /* Occupe toute la hauteur d'écran */
-    padding: 100px 20% 50px; /* Espacement haut/droite-bas/gauche */
-    border-bottom: 1px solid rgba(192, 192, 192, 0.1);
-}
-#accueil h1 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    text-align: center;
-    padding: 0 20px; /* Empêche le texte de toucher les bords */
-    line-height: 1.2; /* Espacement entre les lignes */
-    word-wrap: break-word; /* Force le retour à la ligne si besoin */
-    hyphens: auto; /* Césure automatique pour les mots longs (fonctionne en français) */
-    max-width: 1200px; /* Limite la largeur du texte */
-    margin-left: auto;
-    margin-right: auto;
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s;
 }
 
-@media (max-width: 768px) {
-    #accueil h1 {
-        font-size: 2em; /* Taille réduite sur mobile */
-        hyphens: none; /* Désactive la césure sur mobile si besoin */
-    }
-}
-/* GRID DES COMPÉTENCES */
-.grid-competences {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
-    gap: 30px; /* Espace entre les cartes */
-}
-
-.competence-card {
-    background: rgba(192, 192, 192, 0.05);
-    padding: 20px;
-    border-radius: 5px;
-    transition: 0.3s;
-    opacity: 0;         /* Initialement invisible pour l'animation */
-    transform: translateY(20px); /* Décalage pour l'apparition */
-}
-
-.competence-card:hover {
-    background: rgba(192, 192, 192, 0.1);
-}
-
-/* SECTION PROJETS */
-.projet-container {
-    display: grid;
-    gap: 40px;         /* Espacement entre les projets */
-    margin-top: 50px;
-}
-
-.projet-card {
-    display: flex;
-    gap: 20px;         /* Espace entre image et texte */
-    padding: 20px;
-    background: rgba(192, 192, 192, 0.05);
-    border-radius: 5px;
-    opacity: 0;        /* Animation similaire aux compétences */
-    transform: translateY(20px);
-}
-/* Styles spécifiques pour les projets */
-.projet-liens {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.btn-projet {
-    background: rgba(192, 192, 192, 0.1);
-    color: var(--argent) !important;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-decoration: none;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(192, 192, 192, 0.3);
-}
-
-.btn-projet:hover {
-    background: rgba(192, 192, 192, 0.2);
-    transform: translateY(-2px);
-}
-
-.btn-projet i {
-    font-size: 0.9em;
-}
-
-/* Adaptation mobile */
-@media (max-width: 768px) {
-    .projet-card {
-        flex-direction: column;
-    }
-    
-    .projet-liens {
-        flex-direction: column;
-    }
-    
-    .btn-projet {
-        justify-content: center;
-    }
-}
-
-/* FORMULAIRE DE CONTACT */
-form {
-    max-width: 600px;  /* Limite la largeur sur grand écran */
-    margin: 0 auto;    /* Centre le formulaire */
-}
-
-input, textarea {
+nav a:hover::after {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background: rgba(192, 192, 192, 0.05);
-    border: 1px solid rgba(192, 192, 192, 0.1);
-    color: var(--argent);
-    transition: 0.3s;
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--argent); /* Mise en valeur du focus */
+nav a.active {
+    color: var(--accent);
 }
 
-button {
-    background: var(--argent);
-    color: var(--noir);
-    padding: 10px 30px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
+nav a.active::after {
+    width: 100%;
 }
 
-button:hover {
-    background: #fff;    /* Effet au survol */
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(10, 10, 10, 0.95);
-    position: relative; /* Garantit qu'il reste en bas */
-    z-index: 1000;
-}
-
-/* ANIMATIONS */
-.apparition {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    transition: 0.5s ease-out;
-}
-/* Section Veille */
-.veille-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.veille-card {
-    background: rgba(192, 192, 192, 0.05);
-    padding: 25px;
-    border-radius: 8px;
-    border-left: 4px solid var(--argent);
-}
-
-/* Section Stages */
-.stage-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.stage-card {
-    background: rgba(192, 192, 192, 0.03);
-    padding: 25px;
-    border-radius: 5px;
+/* Améliorations des sections */
+section {
+    min-height: 100vh;
+    padding: 100px 15% 70px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     position: relative;
 }
 
-.stage-card::before {
+section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 100%;
     height: 100%;
-    background: var(--argent);
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(124, 77, 255, 0.05) 0%, rgba(18, 18, 18, 0) 20%),
+        radial-gradient(circle at 85% 30%, rgba(3, 218, 198, 0.05) 0%, rgba(18, 18, 18, 0) 20%);
+    pointer-events: none;
 }
 
-.entreprise {
-    color: #888;
-    margin: 10px 0;
-}
-/* CSS correspondant */
-.options-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 30px;
-}
-
-.option-card {
-    padding: 25px;
-    border-radius: 8px;
-    position: relative;
-    background: rgba(192, 192, 192, 0.03);
-    transition: transform 0.3s;
-}
-
-.option-card:hover {
-    transform: translateY(-5px);
-}
-
-.slam {
-    border-right: 2px solid var(--argent);
-    
-}
-
-.sisr {
-    border-left: 2px solid var(--argent);
-}
-
-.option-card i {
-    font-size: 2em;
-    margin-bottom: 15px;
-    display: block;
-    color: var(--argent);
-}
-
-.acronyme {
-    color: #888;
-    font-size: 0.9em;
-    margin: 10px 0;
-}
-
-@media (max-width: 768px) {
-    .options-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .slam, .sisr {
-        border: none;
-        border-bottom: 2px solid var(--argent);
-    }
-}
-/* Ajoutez ceci dans votre fichier style.css */
-/* Styles pour la nouvelle mise en page */
-
-
-.cv-column {
-    position: relative;
-    height: 100%;
-}
-
-.cv-column h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--argent);
-}
-
-.download-btn {
-    background: var(--argent);
-    color: var(--noir) !important;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    transition: 0.3s;
-    display: block;
-    width: fit-content;
-}
-
-.download-btn:hover {
-    background: #fff;
-}
-
-.presentation-column {
-    padding: 0 20px;
-}
-
-.bio-content {
-    background: rgba(192,192,192,0.03);
-    padding: 30px;
-    border-radius: 8px;
-    border-left: 3px solid var(--argent);
-}
-
-.highlight-box {
-    margin: 25px 0;
-    padding: 20px;
-    background: rgba(192,192,192,0.05);
-    border-radius: 5px;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.skills-tags span {
-    background: rgba(192,192,192,0.1);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9em;
-}
-
-.presentation-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
-    gap: 50px;
-    align-items: start;
-    margin-top: 40px;
-}
-
-
-
-/* Assurez-vous que la section accueil a suffisamment de hauteur */
-#accueil {
-    min-height: 100vh;
-    padding-top: 120px; /* Pour compenser le header fixe */
-}
-
-@media (max-width: 992px) {
-    .presentation-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-    }
-}
-/* Styles pour la section about-bts */
-.about-bts {
-    padding: 30px 0;
-    margin-bottom: 50px;
-}
-
-.about-bts h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--argent);
-}
-
-/* Style pour le bloc d'explication */
-.bts-explanation {
-    background: rgba(192, 192, 192, 0.03);
-    padding: 25px;
-    border-radius: 8px;
+section h1 {
+    font-size: 2.5em;
     margin-bottom: 40px;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.bts-explanation h3 {
-    color: var(--argent);
-    margin-bottom: 15px;
-}
-
-.bts-explanation p {
-    line-height: 1.6;
-}
-
-/* Style pour le bloc des métiers */
-.career-possibilities {
-    margin-top: 50px;
-}
-
-.career-possibilities h3 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--argent);
-}
-
-.careers-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.career-card {
-    background: rgba(192, 192, 192, 0.03);
-    padding: 25px;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.career-card:hover {
-    transform: translateY(-5px);
-    background: rgba(192, 192, 192, 0.05);
-}
-
-.career-card h4 {
-    color: var(--argent);
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-.career-card ul {
-    padding-left: 20px;
-}
-
-.career-card li {
-    margin-bottom: 10px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
     position: relative;
 }
 
-.career-card li::before {
-    content: '>';
+section h1::after {
+    content: '';
     position: absolute;
-    left: -15px;
-    color: var(--noir);
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
 }
 
-/* Adaptation mobile */
-@media (max-width: 768px) {
-    .careers-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .bts-explanation, .career-card {
-        padding: 20px;
+/* Améliorations des cartes */
+.competence-card, .projet-card, .stage-card, .veille-card, .career-card, .option-card {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.competence-card::before, .projet-card::before, .stage-card::before, .veille-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+}
+
+.competence-card:hover, .projet-card:hover, .stage-card:hover, .veille-card:hover, 
+.career-card:hover, .option-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.6), rgba(25, 25, 25, 0.6));
+}
+
+.competence-card:hover::before, .projet-card:hover::before, 
+.stage-card:hover::before, .veille-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Animation d'apparition */
+.apparition {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Style amélioré pour les compétences */
+.competence-logo {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s;
+}
+
+.competence-logo.apparition {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.competence-logo img {
+    filter: grayscale(70%);
+    transition: all 0.3s;
+}
+
+.competence-logo:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.2);
+}
+
+/* Boutons améliorés */
+.btn-projet, .download-btn {
+    background: linear-gradient(90deg, rgba(124, 77, 255, 0.1), rgba(3, 218, 198, 0.1));
+    color: var(--text-primary) !important;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(124, 77, 255, 0.3);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-projet::before, .download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+.btn-projet:hover, .download-btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 7px 15px rgba(124, 77, 255, 0.3);
+    color: white !important;
+}
+
+.btn-projet:hover::before, .download-btn:hover::before {
+    opacity: 1;
+}
+
+/* Formulaire amélioré */
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    color: var(--text-primary);
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.2);
+    background: rgba(40, 40, 40, 0.6);
+}
+
+button[type="submit"] {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(124, 77, 255, 0.4);
+}
+
+/* Bouton de retour en haut de page */
+#scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+}
+
+#scroll-top-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#scroll-top-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 20px rgba(124, 77, 255, 0.4);
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+    section {
+        padding: 100px 10% 70px;
     }
 }
-.competences-container {
+
+@media (max-width: 768px) {
+    nav {
+        gap: 20px;
+    }
+    
+    section h1 {
+        font-size: 2em;
+    }
+    
+    .competences-container, .careers-container {
+        grid-template-columns: 1fr;
+    }
+}
+/* Adapter le style pour revenir à la structure de projets d'origine */
+.projet-container {
+    margin-bottom: 40px;
+}
+
+.projet-card {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.projet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.6), rgba(25, 25, 25, 0.6));
+}
+
+.projet-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+/* GRID DES COMPÉTENCES - restauration de la mise en page originale */
+.grid-competences {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
 
 .competence-card {
-    background: rgba(192, 192, 192, 0.05);
-    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-left: 3px solid var(--argent);
-}
-
-.competence-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    background: rgba(192, 192, 192, 0.08);
-}
-
-.competence-card h3 {
-    color: var(--argent);
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.3em;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(20px);
     position: relative;
-    padding-bottom: 10px;
+    overflow: hidden;
 }
 
-.competence-card h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-    background-color: var(--argent);
-}
+/* Correction pour l'affichage des icônes de compétences */
 
-.competences-logos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
+/* Rendre les icônes visibles par défaut */
 .competence-logo {
+    opacity: 1; /* Modifié de 0 à 1 pour que les images soient visibles par défaut */
+    transform: translateY(0); /* Supprime le décalage initial */
+    transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s;
 }
 
+/* Effet au survol */
 .competence-logo:hover {
     transform: translateY(-5px);
 }
@@ -540,25 +376,21 @@ footer {
 .competence-logo img {
     width: 50px;
     height: 50px;
-    margin-bottom: 10px;
-    filter: grayscale(20%);
-    transition: filter 0.3s, transform 0.3s;
+    margin-bottom: 8px;
+    filter: grayscale(30%); /* Réduit l'effet de grisé pour mieux voir les icônes */
+    transition: all 0.3s;
 }
 
 .competence-logo:hover img {
     filter: grayscale(0%);
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
-.competence-logo span {
-    font-size: 0.9em;
-    color: var(--argent);
-}
-
-/* Animation d'apparition */
+/* Animation d'apparition des cartes conservée */
 .competence-card {
     opacity: 0;
     transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .competence-card.apparition {
@@ -566,9 +398,46 @@ footer {
     transform: translateY(0);
 }
 
+/* Amélioration de l'apparence des compétences */
+.competence-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: var(--accent);
+    text-align: center;
+    position: relative;
+}
+
+/* Style pour la grille des compétences */
+.grid-competences {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.competence-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: var(--accent);
+    text-align: center;
+    position: relative;
+}
+
+.competence-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-primary);
+}
+
 /* Adaptation mobile */
 @media (max-width: 768px) {
-    .competences-container {
+    .grid-competences {
         grid-template-columns: 1fr;
     }
     
@@ -576,134 +445,127 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-/* Styles pour la section de veille technologique avec le flux RSS */
-
-/* Conteneur principal des flux */
+/* Styles pour le flux RSS */
 .rss-feed-wrapper {
     margin-top: 40px;
-    position: relative;
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.4), rgba(18, 18, 18, 0.4));
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* En-tête de la section des flux */
 .rss-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
 }
 
 .rss-header h3 {
-    color: var(--argent);
     margin: 0;
+    color: var(--accent);
+    font-size: 1.4em;
 }
 
-/* Bouton de rafraîchissement */
 .refresh-btn {
-    background: rgba(192, 192, 192, 0.1);
-    color: var(--argent);
-    border: none;
+    background: linear-gradient(90deg, rgba(124, 77, 255, 0.1), rgba(3, 218, 198, 0.1));
+    color: var(--text-primary);
+    border: 1px solid rgba(124, 77, 255, 0.3);
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.refresh-btn:hover {
-    background: rgba(192, 192, 192, 0.2);
-    transform: translateY(-2px);
-}
-
-.refresh-btn i {
+    transition: all 0.3s;
     font-size: 0.9em;
 }
 
-/* Grille des articles */
-#rss-feed-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+.refresh-btn:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.3);
 }
 
-/* Carte pour chaque article */
+.refresh-btn i {
+    transition: transform 0.3s;
+}
+
+.refresh-btn:hover i {
+    transform: rotate(180deg);
+}
+
+#rss-feed-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
 .rss-article {
-    background: rgba(192, 192, 192, 0.03);
+    background: rgba(30, 30, 30, 0.4);
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-left: 3px solid var(--argent);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    transition: all 0.3s;
+    border-left: 3px solid var(--accent);
 }
 
 .rss-article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    background: rgba(192, 192, 192, 0.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(40, 40, 40, 0.4);
 }
 
-/* Titre de l'article */
 .rss-article h4 {
-    color: var(--argent);
+    font-size: 1.1em;
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 1.1em;
-    line-height: 1.4;
+    color: var(--text-primary);
 }
 
-/* Date de publication */
 .rss-date {
-    font-size: 0.8em;
-    color: #888;
-    margin-bottom: 10px;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
 }
 
-/* Description de l'article */
 .rss-description {
-    margin-bottom: 15px;
     font-size: 0.95em;
     line-height: 1.5;
-    flex-grow: 1;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
 }
 
-/* Lien vers l'article complet */
 .rss-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9em;
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: var(--argent);
-    text-decoration: none;
-    font-size: 0.9em;
-    padding: 5px 0;
-    transition: color 0.3s;
-    margin-top: auto;
+    transition: all 0.3s;
 }
 
 .rss-link:hover {
-    color: #fff;
+    color: var(--accent-secondary);
     text-decoration: underline;
 }
 
-/* Message de chargement */
 .loading-msg {
-    grid-column: 1 / -1;
     text-align: center;
-    padding: 20px;
-    color: #888;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
-/* Adaptations pour les mobiles */
+/* Adaptation mobile */
 @media (max-width: 768px) {
     #rss-feed-container {
         grid-template-columns: 1fr;
-    }
-    
-    .rss-article {
-        height: auto;
     }
     
     .rss-header {
@@ -711,4 +573,445 @@ footer {
         align-items: flex-start;
         gap: 15px;
     }
+    
+    .refresh-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* Styles pour la nouvelle structure de la section BTS SIO */
+
+.about-bts {
+    padding: 40px 0;
+    margin-bottom: 50px;
+}
+
+.about-bts h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-primary);
+    font-size: 2.2em;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-bts h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-primary);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Conteneur principal en 3 colonnes */
+.bts-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Colonne centrale avec explication */
+.bts-explanation {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.bts-explanation h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    position: relative;
+}
+
+.bts-explanation h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-primary);
+}
+
+.bts-explanation p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.bts-explanation ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.bts-explanation li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.bts-cta {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* Styles pour chaque colonne */
+.bts-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Options SLAM et SISR */
+.option-card {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.option-card i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: var(--accent);
+    display: block;
+    text-align: center;
+}
+
+.option-card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: var(--text-primary);
+}
+
+.option-card p {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.acronyme {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Spécificités pour SLAM et SISR */
+.slam {
+    border-left: 4px solid var(--accent);
+}
+
+.sisr {
+    border-right: 4px solid var(--accent-secondary);
+}
+
+/* Cartes des métiers */
+.career-card {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.4), rgba(18, 18, 18, 0.4));
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.career-card h4 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    font-size: 1.3em;
+    position: relative;
+}
+
+.career-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--gradient-primary);
+}
+
+.career-card ul {
+    padding-left: 20px;
+}
+
+.career-card li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.career-card li::before {
+    content: '►';
+    position: absolute;
+    left: -18px;
+    color: var(--accent);
+    font-size: 0.8em;
+}
+
+/* Spécificités pour les métiers */
+.slam-careers {
+    border-left: 4px solid var(--accent);
+}
+
+.sisr-careers {
+    border-right: 4px solid var(--accent-secondary);
+}
+
+/* Effets de survol */
+.option-card:hover, .career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Adaptation tablette et mobile */
+@media (max-width: 1024px) {
+    .bts-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    .bts-column {
+        order: 3;
+    }
+    
+    .bts-center {
+        order: 1;
+    }
+    
+    .bts-column:first-child {
+        order: 2;
+    }
+    
+    .slam, .sisr {
+        border: none;
+        border-top: 4px solid var(--accent);
+    }
+    
+    .slam-careers, .sisr-careers {
+        border: none;
+        border-bottom: 4px solid var(--accent);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-bts h2 {
+        font-size: 1.8em;
+    }
+    
+    .option-card, .career-card, .bts-explanation {
+        padding: 20px;
+    }
+}
+/* Styles pour réorganiser la section d'accueil avec le CV et la présentation côte à côte */
+
+/* Ajustement de la grille de présentation */
+.presentation-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Ratio plus important pour la présentation */
+    gap: 30px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+/* Styles pour la colonne de présentation (à gauche) */
+.presentation-column {
+    padding-right: 20px;
+}
+
+.presentation-column h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: var(--text-secondary);
+}
+
+.bio-content {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bio-content p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.highlight-box {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(124, 77, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(124, 77, 255, 0.1);
+}
+
+.highlight-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.highlight-box ul {
+    padding-left: 20px;
+}
+
+.highlight-box li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.highlight-box li::before {
+    content: '►';
+    position: absolute;
+    left: -18px;
+    top: 0;
+    color: var(--accent);
+    font-size: 0.8em;
+}
+
+/* Styles pour la colonne CV (à droite) */
+.cv-column {
+    position: relative;
+}
+
+.cv-column h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 1.5em;
+}
+
+.cv-container {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.6), rgba(18, 18, 18, 0.6));
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cv-wrapper {
+    width: 100%;
+    max-height: 500px; /* Hauteur réduite mais suffisante pour voir le contenu */
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.cv-wrapper embed {
+    width: 100%;
+    height: 500px; /* Adapter à la même hauteur que max-height */
+    border-radius: 5px;
+}
+
+.download-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Animation */
+.presentation-column, .cv-column {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 1200px) {
+    .presentation-grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+    
+    .cv-wrapper {
+        max-height: 450px;
+    }
+    
+    .cv-wrapper embed {
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .presentation-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .cv-column {
+        order: 2; /* Déplace le CV après la présentation sur mobile */
+    }
+    
+    .presentation-column {
+        order: 1;
+        padding-right: 0;
+    }
+    
+    .cv-wrapper {
+        max-height: 600px; /* Plus grand sur mobile pour une meilleure visibilité */
+    }
+    
+    .cv-wrapper embed {
+        height: 600px;
+    }
+}
+/* Correction pour le bouton de téléchargement du CV */
+.download-btn {
+    width: auto;          /* Au lieu de 100% */
+    margin: 0 auto;       /* Centré horizontalement */
+    display: block;       /* Pour que margin auto fonctionne */
+    text-align: center;
+    padding: 10px 20px;   /* Padding réduit */
+    font-size: 0.9em;     /* Texte légèrement plus petit */
+}
+
+/* Animation plus subtile au survol */
+.download-btn:hover {
+    transform: translateY(-2px) !important;
 }
