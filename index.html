@@ -39,15 +39,6 @@
                             <li>Diplôme National du Brevet</li>
                         </ul>
                     </div>
-                    
-                    <div class="highlight-box">
-                        <h3><i class="fas fa-laptop-code"></i> Spécialités</h3>
-                        <ul>
-                            <li>Développement d'applications en Kotlin et Java</li>
-                            <li>Conception de solutions web avec Angular</li>
-                            <li>Gestion de bases de données relationnelles</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             
@@ -64,9 +55,79 @@
                 </div>
             </div>
         </div>
+        <!-- Ajoutez ce code juste après la section id="accueil" et avant la section about-bts -->
+<div class="horizontal-timeline-section">
+    <div class="timeline-container horizontal">
+        <h2>Mon parcours et mes ambitions</h2>
+        <div class="horizontal-timeline">
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h4>Diplôme National du Brevet</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <h4>Baccalauréat général</h4>
+                        <p>Spécialités Mathématiques, SVT et HGGSP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item interrupted">
+                    <div class="timeline-dot interrupted"></div>
+                    <div class="timeline-date">2022-2023</div>
+                    <div class="timeline-content">
+                        <h4>Licence Informatique</h4>
+                        <p>Formation non terminée</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h4>1ère année BTS SIO</h4>
+                        <p>Option SLAM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item current">
+                    <div class="timeline-dot current"></div>
+                    <div class="timeline-date">2025</div>
+                    <div class="timeline-content">
+                        <h4>2ème année BTS SIO</h4>
+                        <p>Développement d'applications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item-wrapper">
+                <div class="timeline-item future">
+                    <div class="timeline-dot future">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-content">
+                        <h4>Et après ?</h4>
+                        <p>Licence ? Bachelor ? École d'ingénieur ?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="horizontal-timeline-line"></div>
+        </div>
+    </div>
+</div>
     </section>
    <!-- Nouvelle structure pour la section BTS SIO -->
-<div class="about-bts">
+   <div class="about-bts">
     <h2>Le BTS SIO</h2>
     
     <!-- Conteneur principal avec 3 colonnes -->
@@ -289,62 +350,268 @@
                     </div>
                 </div>
             </div>
+            <div class="projet-card">
+                <div class="projet-info">
+                    <h3>Kotlin Luminaire</h3>
+                    <p>Projet réalisé en Kotlin</p>
+                    <div class="projet-liens">
+                        <a href="https://github.com/TiegoRama/Kotlin-Luminaire" 
+                           class="btn-projet" 
+                           target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Voir le projet
+                        </a>
+                        <a href="https://github.com/TiegoRama/Kotlin-Luminaire/archive/refs/heads/main.zip" 
+                           class="btn-projet" 
+                           download>
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="stages">
-        <h1>Stages</h1>
-        <div class="stage-container">
-            <div class="stage-card">
-                <h3>Casden</h3>
-                <p class="entreprise">Mai 2024 - Juin 2024</p>
-                <ul>
-                    <li>Création de protocole</li>
-                    <li>Déploiement d'applications</li>
-                    <li>tests de ligne téléphonique</li>
-                    <li>Optimisation de script</li>
-                </ul>
-            </div>
-            <div class="stage-card">
-                <h3>WeeklyTech</h3>
-                <p class="entreprise">Janvier 2025 - Février 2025</p>
-                <ul>
-                    <li>Développement d'une application en java/javafx</li>
-  
-            </div>
+   <!-- Modification pour la section stages -->
+<section id="stages">
+    <h1>Stages</h1>
+    <div class="stage-container">
+        <div class="stage-card" id="stage-casden">
+            <h3>Casden</h3>
+            <p class="entreprise">Mai 2024 - Juin 2024</p>
+            <ul>
+                <li>Création de protocole</li>
+                <li>Déploiement d'applications</li>
+                <li>Tests de ligne téléphonique</li>
+                <li>Optimisation de script</li>
+            </ul>
+            <!-- Le bouton "Voir détails" sera ajouté par le JavaScript -->
         </div>
-    </section>
+        <div class="stage-card" id="stage-weeklytech">
+            <h3>WeeklyTech</h3>
+            <p class="entreprise">Janvier 2025 - Février 2025</p>
+            <ul>
+                <li>Développement d'une application en java/javafx</li>
+            </ul>
+            <!-- Le bouton "Voir détails" sera ajouté par le JavaScript -->
+        </div>
+    </div>
     
-    <section id="veille">
-        <h1>Veille Technologique</h1>
-        <div class="veille-container">
-            <div class="veille-card">
-                <h3>Cybersécurité des applications</h3>
-                <p>Thème suivi : Bonnes pratiques OWASP 2024</p>
-                <a href="#" class="btn-projet">Voir la synthèse</a>
+    <!-- Popup pour les détails de stage -->
+    <div id="stage-popup" class="stage-popup">
+        <div class="stage-popup-content">
+            <!-- Le contenu sera chargé dynamiquement par le JavaScript -->
+        </div>
+    </div>
+</section>
+    
+  <!-- Remplacer votre section veille actuelle par celle-ci -->
+<section id="veille">
+    <h1>Veille Technologique</h1>
+    <div class="veille-container">
+        <div class="veille-card">
+            <h3>Upscaling par IA dans les jeux vidéo</h3>
+            <p>DLSS, FSR, XeSS : Comment le deep learning révolutionne les performances graphiques</p>
+            <p class="veille-date">Dernière mise à jour : Avril 2025</p>
+            <div class="veille-content">
+                <p>Ma veille technologique se concentre sur les technologies d'upscaling par intelligence artificielle qui ont révolutionné le gaming moderne :</p>
+                <ul class="veille-list">
+                    <li><strong>NVIDIA DLSS</strong> (Deep Learning Super Sampling)</li>
+                    <li><strong>AMD FSR</strong> (FidelityFX Super Resolution)</li>
+                    <li><strong>Intel XeSS</strong> (Xe Super Sampling)</li>
+                </ul>
+                <p>Ces technologies utilisent l'IA et le deep learning pour permettre aux jeux de fonctionner à des résolutions plus élevées avec un impact minimal sur les performances.</p>
             </div>
-            <div class="veille-card">
-                <h3>IA Générative</h3>
-                <p>Outils : GitHub Copilot, ChatGPT 4</p>
-                <a href="#" class="btn-projet">Ressources</a>
-            </div>
+            <a href="#" class="btn-projet" id="voir-plus-dlss">Voir la synthèse complète</a>
+        </div>
+    </div>
+
+    <!-- Popup pour la veille DLSS -->
+<div id="veille-popup" class="veille-popup">
+    <div class="veille-popup-content">
+        <span class="close-popup">&times;</span>
+        <h2>Veille Technologique : Upscaling par IA dans les jeux vidéo</h2>
         
-  
+        <div class="veille-section context">
+            <h3>Contexte de la veille</h3>
+            <p>Cette veille technologique s'inscrit dans un contexte caractérisé par :</p>
+            <ul>
+                <li>L'explosion des besoins en performance dans le jeu vidéo (résolution 4K, Ray Tracing, VR)</li>
+                <li>Les limites matérielles des GPU actuels face à ces exigences</li>
+                <li>L'émergence de l'upscaling par IA et temporel comme solution à ces défis</li>
+            </ul>
+            
+            <div class="problematique-box">
+                <h4>Problématique</h4>
+                <p>Comment les technologies d'upscaling modernes (DLSS 4, FSR 4, XeSS) transforment-elles les performances et l'expérience visuelle des jeux vidéo actuels et futurs ?</p>
+            </div>
         </div>
         
-        <!-- Nouvelle section pour le flux RSS -->
-        <div id="rss-section" class="rss-feed-wrapper">
-            <div class="rss-header">
-                <h3>Derniers articles techniques</h3>
-                <button id="refresh-rss" class="refresh-btn">
-                    <i class="fas fa-sync-alt"></i> Rafraîchir
-                </button>
-            </div>
-            <div id="rss-feed-container">
-                <!-- Le contenu sera chargé dynamiquement par le JavaScript -->
+        <div class="veille-section">
+            <h3>I. Les Technologies d'Upscaling : Fonctionnement et Différences</h3>
+            
+            <div class="tech-comparison">
+                <div class="tech-card">
+                    <h4>1. NVIDIA DLSS 4</h4>
+                    <p><strong>Principe :</strong> Upscaling IA (Tensor Cores) + Frame Generation</p>
+                    <p><strong>Spécificités :</strong> Exclusif aux cartes RTX, drivers propriétaires</p>
+                    <p><strong>Nouveautés vs DLSS 3 :</strong> Intelligence artificielle améliorée, meilleure gestion des artefacts temporels, latence réduite</p>
+                    <p><strong>Avantages :</strong> Excellente qualité d'image, génération d'images fluide, réduction efficace de latence</p>
+                    <p><strong>Inconvénients :</strong> Écosystème fermé, exigence matérielle élevée</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>2. AMD FSR 4</h4>
+                    <p><strong>Principe :</strong> Upscaling spatial + temporel + Machine Learning (en développement)</p>
+                    <p><strong>Atout majeur :</strong> Open source, multiplateforme, compatible avec presque tous les GPU</p>
+                    <p><strong>Objectif :</strong> Rattraper NVIDIA sur la qualité et la fluidité</p>
+                    <p><strong>Avantages :</strong> Accessibilité, implémentation plus simple pour les développeurs</p>
+                    <p><strong>Inconvénients :</strong> Qualité d'image généralement inférieure au DLSS à basse résolution</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h4>3. Intel XeSS</h4>
+                    <p><strong>Principe :</strong> IA XMX + fallback DP4a pour les GPU non-Intel</p>
+                    <p><strong>Positionnement :</strong> Compatible multi-GPU, approche hybride</p>
+                    <p><strong>Avantages :</strong> Qualité proche du DLSS dans certains scénarios, compatibilité étendue</p>
+                    <p><strong>Limites :</strong> Support limité des jeux, performances variables selon les titres</p>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <div class="veille-section">
+            <h3>II. Les Technologies Concurrentes ou Alternatives</h3>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>1. DirectSR (Microsoft)</h4>
+                    <ul>
+                        <li>Standard d'upscaling intégré à DirectX</li>
+                        <li>Facilite l'intégration pour les développeurs</li>
+                        <li>Prometteur pour l'avenir de l'upscaling standardisé</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>2. Unreal Engine TSR</h4>
+                    <ul>
+                        <li>Système d'upscaling temporel natif d'Unreal Engine 5</li>
+                        <li>Très performant mais limité à ce moteur</li>
+                        <li>Intégration parfaite avec Nanite et Lumen</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>3. Unity Upscaler</h4>
+                    <ul>
+                        <li>Nouveau système d'upscaling dans Unity</li>
+                        <li>En progression constante</li>
+                        <li>Alternative intéressante pour les projets Unity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="veille-section">
+            <h3>III. Les Technologies Complémentaires</h3>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>1. Frame Generation</h4>
+                    <ul>
+                        <li><strong>DLSS Frame Generation (NVIDIA) :</strong> Génération d'images intermédiaires par IA</li>
+                        <li><strong>AMD Fluid Motion Frames (AFMF) :</strong> Alternative open-source d'AMD</li>
+                        <li><strong>Intel Frame Generation :</strong> Solution en développement</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>2. Anti-Aliasing IA</h4>
+                    <ul>
+                        <li><strong>DLAA (NVIDIA) :</strong> Anti-aliasing par deep learning</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>3. Autres Approches Visuelles</h4>
+                    <ul>
+                        <li>Reconstruction visuelle spécialisée</li>
+                        <li>Temporal Injection pour améliorer la stabilité</li>
+                        <li>Upscaling vidéo (ex : Nvidia RTX Video Super Resolution)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="veille-section">
+            <h3>IV. Enjeux & Perspectives</h3>
+            
+            <div class="tech-grid three-columns">
+                <div class="tech-item">
+                    <h4>1. Enjeux pour les développeurs</h4>
+                    <ul>
+                        <li>Standardisation avec DirectSR</li>
+                        <li>Gain de temps et optimisation du développement</li>
+                        <li>Accès multi-plateforme aux technologies</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>2. Enjeux pour les joueurs</h4>
+                    <ul>
+                        <li>Équilibre entre qualité visuelle et fluidité</li>
+                        <li>Réduction de la latence</li>
+                        <li>Compatibilité avec le matériel existant</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-item">
+                    <h4>3. Tendances futures</h4>
+                    <ul>
+                        <li>IA de plus en plus présente dans le rendu graphique</li>
+                        <li>Upscaling universel standardisé</li>
+                        <li>Expansion vers l'upscaling vidéo et le streaming</li>
+                        <li>Intégration poussée dans le cloud gaming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="veille-section">
+            <h3>Impact sur le développement</h3>
+            <p>En tant que développeur SLAM, ces technologies présentent des implications importantes :</p>
+            <ul>
+                <li>Possibilité d'intégrer des principes similaires dans des applications Kotlin avec des bibliothèques graphiques</li>
+                <li>Optimisation d'applications web avec WebGPU en appliquant des techniques inspirées de l'upscaling</li>
+                <li>Considérations architecturales pour le développement d'applications nécessitant un rendu visuel performant</li>
+                <li>Opportunités d'utiliser Angular pour créer des interfaces réactives qui s'adaptent aux capacités de rendu</li>
+            </ul>
+        </div>
+        
+        <div class="veille-conclusion">
+            <h4>Conclusion</h4>
+            <ul>
+                <li>L'upscaling devient un élément central du rendu graphique moderne</li>
+                <li>La compétition technologique se déplace sur l'IA et la fluidité plutôt que la résolution brute</li>
+                <li>Nous nous dirigeons vers un futur où la résolution native devient presque secondaire face à la qualité de l'upscaling</li>
+                <li>Ces technologies influenceront également d'autres domaines du développement, au-delà du jeu vidéo</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    <div id="rss-section" class="rss-feed-wrapper">
+        <div class="rss-header">
+            <h3>Derniers articles techniques</h3>
+            <button id="refresh-rss" class="refresh-btn">
+                <i class="fas fa-sync-alt"></i> Rafraîchir
+            </button>
+        </div>
+        <div id="rss-feed-container">
+            <!-- Le contenu sera chargé dynamiquement par le JavaScript -->
+        </div>
+    </div>
+</section>
+
     <section id="contact">
         <h1>Contact</h1>
 <!-- Modifiez votre formulaire comme ceci -->
@@ -376,107 +643,6 @@
             });
         });
     </script>
-    <script>
-        // Script pour récupérer et afficher un flux RSS
-        document.addEventListener('DOMContentLoaded', function() {
-          // Fonction pour charger les articles RSS
-          function loadRssFeeds() {
-            const feedContainer = document.getElementById('rss-feed-container');
-            
-            // URL des flux RSS à suivre (vous pouvez les adapter selon vos intérêts)
-            const feedUrls = [
-              'https://aws.amazon.com/blogs/amazon-ai/feed',
-              'https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml'
-
-
-             
-            ];
-            
-            // Utilisation d'un proxy CORS pour pouvoir accéder aux flux RSS
-            const corsProxy = 'https://api.rss2json.com/v1/api.json?rss_url=';
-            
-            // Limiter le nombre d'articles à afficher
-            const maxArticles = 6;
-            let articlesLoaded = 0;
-            
-            // Afficher un message de chargement
-            feedContainer.innerHTML = '<div class="loading-msg">Chargement des articles...</div>';
-            
-            // Pour chaque flux RSS
-            feedUrls.forEach(url => {
-              fetch(corsProxy + encodeURIComponent(url))
-                .then(response => response.json())
-                .then(data => {
-                  // Supprimer le message de chargement
-                  const loadingMsg = document.querySelector('.loading-msg');
-                  if (loadingMsg) loadingMsg.remove();
-                  
-                  // Si le flux a été correctement chargé
-                  if (data.status === 'ok') {
-                    // Pour chaque article dans le flux
-                    data.items.slice(0, 2).forEach(item => {
-                      if (articlesLoaded < maxArticles) {
-                        // Créer un élément pour l'article
-                        const articleElement = document.createElement('div');
-                        articleElement.className = 'rss-article';
-                        
-                        // Formater la date
-                        const pubDate = new Date(item.pubDate);
-                        const formattedDate = pubDate.toLocaleDateString('fr-FR', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        });
-                        
-                        // Limiter la description à 150 caractères
-                        let description = item.description
-                          .replace(/<[^>]*>/g, '') // Supprimer les balises HTML
-                          .substring(0, 150); // Limiter à 150 caractères
-                        
-                        if (description.length === 150) {
-                          description += '...';
-                        }
-                        
-                        // Remplir l'élément avec les informations de l'article
-                        articleElement.innerHTML = `
-                          <h4>${item.title}</h4>
-                          <p class="rss-date">${formattedDate} - ${data.feed.title}</p>
-                          <p class="rss-description">${description}</p>
-                          <a href="${item.link}" target="_blank" class="rss-link">Lire l'article <i class="fas fa-external-link-alt"></i></a>
-                        `;
-                        
-                        // Ajouter l'élément au conteneur
-                        feedContainer.appendChild(articleElement);
-                        articlesLoaded++;
-                      }
-                    });
-                  }
-                })
-                .catch(error => {
-                  console.error('Erreur lors du chargement du flux RSS:', error);
-                  
-                  // Afficher un message d'erreur si aucun flux n'a pu être chargé
-                  if (feedContainer.children.length === 0 || feedContainer.children[0].className === 'loading-msg') {
-                    feedContainer.innerHTML = '<p>Impossible de charger les articles. Veuillez réessayer plus tard.</p>';
-                  }
-                });
-            });
-          }
-          
-          // Charger les flux RSS au chargement de la page
-          loadRssFeeds();
-          
-          // Ajouter un bouton pour rafraîchir les flux
-          const refreshButton = document.getElementById('refresh-rss');
-          if (refreshButton) {
-            refreshButton.addEventListener('click', function() {
-              const feedContainer = document.getElementById('rss-feed-container');
-              feedContainer.innerHTML = ''; // Vider le conteneur
-              loadRssFeeds(); // Recharger les flux
-            });
-          }
-        });
-        </script>
             <script src="portfolio.js"></script>
             <div id="scroll-top-btn">
                 <i class="fas fa-arrow-up"></i>
