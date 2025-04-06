@@ -316,11 +316,11 @@ const stagesDetails = {
         title: "Script Python optimisé pour envoie de mails automatiques"
       },
       {
-        path: "images/serveur_ping_dns.jpg",
+        path: "images/serveur-ping-dns.jpg",
         title: "Script pour tester le ping de serveurs dns en lisant un fichier CSV"
       },
 
-      {path: "images/Serveur_ping.jpg",
+      {path: "images/serveur-ping.jpg",
         title: "Script pour tester le ping de serveurs en lisant un fichier CSV"
 
       }
