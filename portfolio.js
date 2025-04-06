@@ -316,11 +316,11 @@ const stagesDetails = {
         title: "Script Python optimisé pour envoie de mails automatiques"
       },
       {
-        path: "images/serveur ping dns.jpg",
+        path: "images/serveur_ping_dns.jpg",
         title: "Script pour tester le ping de serveurs dns en lisant un fichier CSV"
       },
 
-      {path: "images/Serveur Ping.jpg",
+      {path: "images/Serveur_ping.jpg",
         title: "Script pour tester le ping de serveurs en lisant un fichier CSV"
 
       }
@@ -348,10 +348,6 @@ const stagesDetails = {
       {
         path: "images/launcher.jpg",
         title: "Launcher minecraft"
-      },
-      {
-        path: "images/weeklytech-screenshot2.jpg",
-        title: "Écran de gestion des tâches"
       }
     ],
     conclusion: "Ce stage m'a permis d'approfondir mes compétences en développement Java et de découvrir le framework JavaFX."

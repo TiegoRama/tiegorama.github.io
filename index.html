@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+<script>
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+</script>
     <title>Portfolio BTS SIO SLAM</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modern-styles.css">
@@ -47,7 +51,7 @@
                 <h2>Mon CV</h2>
                 <div class="cv-container">
                     <div class="cv-wrapper">
-                        <embed src="CV_TIEGO_RAMAMONJISOA.pdf" type="application/pdf" />
+                        <canvas id="pdf-viewer"></canvas>
                     </div>
                     <a href="CV_TIEGO_RAMAMONJISOA.pdf" download class="download-btn">
                         <i class="fas fa-download"></i> Télécharger mon CV
@@ -643,9 +647,59 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Chargement du PDF
+            const loadPDF = async () => {
+                const loadingTask = pdfjsLib.getDocument('CV_TIEGO_RAMAMONJISOA.pdf');
+                try {
+                    const pdf = await loadingTask.promise;
+                    // Afficher la première page
+                    renderPage(pdf, 1);
+                } catch (error) {
+                    console.error('Erreur lors du chargement du PDF:', error);
+                    document.querySelector('.cv-wrapper').innerHTML = '<p class="error-message">Impossible de charger le CV. <a href="CV_TIEGO_RAMAMONJISOA.pdf" download>Téléchargez-le ici</a>.</p>';
+                }
+            };
+        
+            // Fonction pour rendre une page
+            const renderPage = async (pdf, pageNumber) => {
+                const page = await pdf.getPage(pageNumber);
+                const canvas = document.getElementById('pdf-viewer');
+                const context = canvas.getContext('2d');
+                
+                // Paramètres de l'échelle pour s'adapter à la largeur du conteneur
+                const viewport = page.getViewport({ scale: 1 });
+                const containerWidth = canvas.parentElement.clientWidth;
+                const scale = containerWidth / viewport.width;
+                const scaledViewport = page.getViewport({ scale });
+                
+                // Dimensions du canvas
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
+                
+                // Rendu de la page
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+                
+                await page.render(renderContext).promise;
+            };
+            
+            // Charger le PDF
+            loadPDF();
+            
+            // Réagir aux changements de taille de fenêtre
+            window.addEventListener('resize', function() {
+                loadPDF();
+            });
+        });
+        </script>
             <script src="portfolio.js"></script>
             <div id="scroll-top-btn">
                 <i class="fas fa-arrow-up"></i>
             </div>
+
 </body>
 </html>
